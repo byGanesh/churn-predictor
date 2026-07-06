@@ -1,4 +1,8 @@
 import pandas as pd
+from sklearn.compose import ColumnTransformer
+from sklearn.impute import SimpleImputer
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 from config import CATEGORICAL_COLS, DATA_PATH, NUMERICAL_COLS
 
@@ -9,6 +13,30 @@ def load_data(path: str) -> pd.DataFrame:
     df.drop(columns=["customerID"], inplace=True)
     df["Churn"] = df["Churn"].map({"Yes": 1, "No": 0})
     return df
+
+
+def split_features_target(df: pd.DataFrame):
+    X = df.drop(columns=["Churn"])
+    y = df["Churn"]
+
+    return X, y
+
+
+def build_preprocessor() -> ColumnTransformer:
+    num_trans = Pipeline(
+        [("impuster", SimpleImputer(strategy="median")), ("scaler", StandardScaler())]
+    )
+
+    cat_trans = Pipeline(
+        [
+            ("imputer", SimpleImputer(strategy="most_frequent")),
+            ("encoder", OneHotEncoder(handle_unknown="ignore", sparse_out=False)),
+        ]
+    )
+
+    return ColumnTransformer(
+        [("num", num_trans, NUMERICAL_COLS), ("cat", cat_trans, CATEGORICAL_COLS)]
+    )
 
 
 print(load_data(DATA_PATH).info())
