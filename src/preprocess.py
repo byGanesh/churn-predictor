@@ -37,6 +37,3 @@ def build_preprocessor() -> ColumnTransformer:
     return ColumnTransformer(
         [("num", num_trans, NUMERICAL_COLS), ("cat", cat_trans, CATEGORICAL_COLS)]
     )
-
-
-print(load_data(DATA_PATH).info())
