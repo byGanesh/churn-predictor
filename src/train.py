@@ -5,7 +5,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import StratifiedKFold, cross_validate, train_test_split
 from sklearn.pipeline import Pipeline
 
-from config import (
+from src.config import (
     CV_FOLDS,
     DATA_PATH,
     MLFLOW_EXPERIMENT,
@@ -15,7 +15,8 @@ from config import (
     TARGET_COL,
     TEST_SIZE,
 )
-from preprocess import build_preprocessor, load_data, split_features_target
+from src.evaluate import compute_metrics, log_metrics
+from src.preprocess import build_preprocessor, load_data, split_features_target
 
 
 def build_pipeline() -> Pipeline:
@@ -59,7 +60,9 @@ def train():
         log_metrics(metrics)
         mlflow.log_metric("cv_f1_mean", cv_results["test_f1"].mean())
         mlflow.log_metric("cv_auc_mean", cv_results["test_roc_auc"].mean())
-        mlflow.sklearn.log_model(pipeline, artifact_path="model")
+        mlflow.sklearn.log_model(
+            pipeline, name="model", skops_trusted_types=["numpy.dtype"]
+        )
 
     joblib.dump(pipeline, MODEL_PATH)
     print(f"\n Pipeline Saved: {MODEL_PATH}")

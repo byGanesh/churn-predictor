@@ -4,7 +4,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-from config import CATEGORICAL_COLS, DATA_PATH, NUMERICAL_COLS
+from src.config import CATEGORICAL_COLS, DATA_PATH, NUMERICAL_COLS
 
 
 def load_data(path: str) -> pd.DataFrame:

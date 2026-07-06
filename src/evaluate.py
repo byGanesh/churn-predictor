@@ -36,5 +36,4 @@ def compute_metrics(pipeline, X_test, y_test) -> dict:
 
 
 def log_metrics(metrics: dict):
-    for k, v in metrics.items():
-        mlflow.log_metrics(k, v)
+    mlflow.log_metrics(metrics)

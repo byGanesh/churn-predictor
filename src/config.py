@@ -27,7 +27,7 @@ CATEGORICAL_COLS = [
 
 MODEL_PARAMS = {
     "l1_ratio": 0,  # L2 (ridge)
-    "C": 1.0,  # max 1/lambda
+    "C": 1.0,  # 1/lambda
     "max_iter": 1000,
     "class_weight": "balanced",
     "random_state": RANDOM_STATE,
