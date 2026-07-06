@@ -5,7 +5,7 @@ TEST_SIZE = 0.2
 RANDOM_STATE = 42
 CV_FOLDS = 5
 
-NUMERICAL_COLS = ["tenure", "MonthlyCharges", "SeniorCitizen"]
+NUMERICAL_COLS = ["tenure", "MonthlyCharges", "SeniorCitizen", "TotalCharges"]
 
 CATEGORICAL_COLS = [
     "gender",
@@ -23,7 +23,6 @@ CATEGORICAL_COLS = [
     "Contract",
     "PaperlessBilling",
     "PaymentMethod",
-    "TotalCharges",
 ]
 
 MODEL_PARAMS = {
