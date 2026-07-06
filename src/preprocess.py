@@ -30,7 +30,7 @@ def build_preprocessor() -> ColumnTransformer:
     cat_trans = Pipeline(
         [
             ("imputer", SimpleImputer(strategy="most_frequent")),
-            ("encoder", OneHotEncoder(handle_unknown="ignore", sparse_out=False)),
+            ("encoder", OneHotEncoder(handle_unknown="ignore")),
         ]
     )
 

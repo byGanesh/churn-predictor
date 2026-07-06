@@ -26,9 +26,11 @@ CATEGORICAL_COLS = [
 ]
 
 MODEL_PARAMS = {
-    "penalty": "l2",
-    "C": 1.0,
+    "l1_ratio": 0,  # L2 (ridge)
+    "C": 1.0,  # max 1/lambda
     "max_iter": 1000,
     "class_weight": "balanced",
     "random_state": RANDOM_STATE,
 }
+
+MLFLOW_EXPERIMENT = "churn-predictor"
