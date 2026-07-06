@@ -13,7 +13,7 @@ Predict whether a customer will churn (cancel subscription) based on their accou
 
 ## Logistic Regression Report 
 
------ CV RESULTS --------
+### CV RESULTS
 | metric     | mean   | std    |
 |------------|--------|--------|
 | precision  | 0.5165 | 0.0189 |
@@ -21,7 +21,7 @@ Predict whether a customer will churn (cancel subscription) based on their accou
 | roc_auc    | 0.8459 | 0.0124 |
 
 
----- Test Metrics -----
+### Test Metrics
 | metric     | value  |
 |------------|--------|
 | accuracy   | 0.7381 |
@@ -31,7 +31,7 @@ Predict whether a customer will churn (cancel subscription) based on their accou
 | roc_auc    | 0.8413 |
 
 
----- Confusion Matrix -----
+#### Confusion Matrix
 | TN  | FP  |
 |-----|-----|
 | 747 | 288 |
@@ -39,7 +39,7 @@ Predict whether a customer will churn (cancel subscription) based on their accou
 | 81  | 293 |
 
 
----- Classification report -----
+#### Classification report
 | class     | precision | recall | f1-score | support |
 |-----------|-----------|--------|----------|---------|
 | No Churn  | 0.90      | 0.72   | 0.80     | 1035    |
@@ -48,19 +48,19 @@ Predict whether a customer will churn (cancel subscription) based on their accou
 | macro avg | 0.70      | 0.75   | 0.71     | 1409    |
 | weighted avg | 0.80   | 0.74   | 0.75     | 1409    |
 
-
+  
 ## Model Visualizations
 
-**Confusion Matrix**  
+#### **Confusion Matrix**  
 ![Confusion Matrix](assets/confusion_matrix.png)
 
-**ROC Curve**  
+#### **ROC Curve**  
 ![ROC Curve](assets/roc_curve.png)
 
-**Precision-Recall Curve**  
+#### **Precision-Recall Curve**  
 ![Precision Recall Curve](assets/precision_recall_curve.png)
 
-**Threshold Analysis**  
+#### **Threshold Analysis**  
 ![Threshold Curve](assets/threshold_curve.png)
 
 
