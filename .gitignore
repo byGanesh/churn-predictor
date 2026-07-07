@@ -5,3 +5,5 @@ mlruns/
 models/
 
 mlflow.db
+
+.pytest_cache
